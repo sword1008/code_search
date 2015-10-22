@@ -1,0 +1,203 @@
+body, html{
+    font-family: "Roboto", Helvetica, arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+.header{
+    padding-left:10px;
+    padding-top: 20px;
+    height:79px;
+    border-bottom: 1px solid #a2a2a2;
+}
+.container{
+    width: 950px;
+    margin: 0 auto;
+}
+.logo{
+    width:200px;
+    height: 53px;
+    background: url('../img/logo.png');
+    background-size: 100% 100%;
+}
+.nav{
+    float:right;
+}
+.nav ul{
+    margin: 0;
+    padding: 0;
+    margin-top:15px;
+    list-style: none;
+    display: inline-block;
+    float:left
+}
+.nav ul > li > a, .nav ul > li > a:visited{
+    color:#616161;
+    text-decoration: none;
+}
+.nav ul > li{
+    font-weight:500;
+    font-size:16px;
+    float:left;
+    margin-right: 30px;
+}
+.search{
+    margin-top:15px;
+    float:left
+}
+.search-icon{
+    background: url('../img/sprite.png');
+    width:23px;
+    height:20px;
+    cursor: pointer;
+}
+
+.content{
+    margin:0 35px;
+    background: #fbfbfb;
+    border: 2px solid #e4e4e4;
+    border-top: 0;
+    padding:25px 10px;
+    display: inline-block;
+}
+.block-header{
+    color:#616161;
+    font-size:22px;
+    font-weight:500;
+}
+.filters{
+    padding-left:10px;
+    padding-right: 40px;
+    width:210px;
+    border-right: 1px solid #bcbcbc;
+    float:left;
+}
+.custom-combobox-input::-webkit-input-placeholder{
+    color:#25c5e5;
+}
+.custom-combobox-input::-moz-placeholder{
+    color:#25c5e5;
+}
+.custom-combobox-input:-ms-input-placeholder{
+    color:#25c5e5;
+}
+.custom-combobox{
+    position: relative;
+}
+.custom-combobox-input{
+    font-size:16px;
+    width:100%;
+    font-weight: 500;
+    background: none;
+    border:0;
+    border-bottom: 1px solid #c8c8c8;
+    margin: 15px 0;
+}
+.custom-combobox .ui-button .ui-icon{
+    background: url("../img/sprite.png");
+    background-position: 0 -100px;
+    width: 10px;
+    height: 15px;
+}
+.custom-combobox .ui-button{
+    width: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: 0;
+}
+.submit > button{
+    font-weight: 500;
+    background: #616161;
+    text-transform: uppercase;
+    padding: 3px 15px;
+    color:#fff;
+    border:0;
+}
+.snippets{
+    width: 555px;
+    float:left;
+    padding: 10px 30px;
+    padding-right: 10px;
+}
+.snippet-group{
+    height:75px;
+}
+.snippet-user{
+    padding: 5px 0;
+    float:left;
+    text-align: center;
+}
+.snippet-user img{
+    width:50px;
+    border: 2px solid #71d9ee;
+    border-radius: 6px;
+}
+.snippet-body{
+    width:450px;
+    padding:  5px 10px;
+    padding-left: 20px;
+    float:left;
+    transition: border .3s;
+}
+.snippet-info{
+    color:#adadad;
+    font-weight: 500;
+    font-size:12px;
+}
+.snippet-info .date{
+    color:#616161
+}
+.snippet-body h3 > a{
+    color:#25c5e5;
+    text-decoration: none;
+}
+.snippet-body h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.snippet-descr{
+    font-weight: bold;
+    color:#616161;
+    font-size: 12px;
+}
+footer{
+    margin: 20px 35px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align:center;
+    color:#4d485b;
+    border-top: 1px solid #b5b5b5
+}
+footer a{
+    color:#368ccb;
+    text-decoration: none;
+}
+.soc-icons ul{
+    margin: 15px 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+.soc-icons ul > li{
+    float:left;
+    margin-right: 5px;
+}
+.ico{
+    display: inline-block;
+    background: url(../img/sprite.png);
+    width:24px;
+    height:25px
+}
+.ico-g{
+    background-position: 0 -19px;
+}
+
+.ico-ln{
+    background-position: 0 -46px;
+}
+
+.ico-fb{
+    background-position: 0 -75px;
+}

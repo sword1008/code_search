@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" />
+	<link href="css/new2.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/lodash/lodash.min.js"></script>
+	<script src="bower_components/restangular/dist/restangular.min.js"></script>
+	<script src="scripts/main.js"></script>
+	<script src="/scripts/rest.js"></script>
+	<title>Search code</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:700,500,400' rel='stylesheet' type='text/css'>
+</head>
+<body >
+	<div class="content" ng-app="snippet" ng-controller="snippetCtrl">
+		<header>
+			<div class="header-nav">
+				<div class="search-form">
+					<div class="search-form-input">
+						<span class="icon icon-search"></span>
+						<input type="text" ng-model="searchText" name="query" placeholder="search snippets">
+						<!--<button ng-click="search(searchText)">Search</button>-->
+					</div>
+				</div>
+				<ul>
+					<li><a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Sign in</a></li>
+					<li><a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Sign up</a></li>
+				</ul>
+			</div>
+
+			<div class="header-logo">
+				<div class="header-logo-text">Luddite Labs</div>
+			</div>
+
+	</header>
+
+	<div class="left-menu menu-collapse">
+		<div class="menu-collapse-caption">
+			<a href="#" data-menu=".left-menu">
+				<span class="icon icon-arrowdown"></span>
+				Filter
+			</a>
+		</div>
+
+		<div class="menu-collapse-content">
+			<div class="left-menu-form">
+				<label>Language</label>
+				<br/>
+				<select class="custom-combobox-input ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input" placeholder="Language" ng-model="frame_query" ng-change="framework_find()"  ng-options="language as language.name for language in languages">
+				</select>
+				<br/>
+				<label>Framework</label>
+				<br/>
+				<select class="custom-combobox-input ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input" placeholder="Framework" ng-change="language_find()" ng-model="language_query" ng-options="framework as framework.name for framework in frameworks">
+
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+
+		<h1>{{snippets.length}} results found</h1>
+		<!--<h1>{{snippets.count}} results{% if filterform.q.value %} for: <span class="search-term">“{{  filterform.q.value }}”</span>{% endif %}</h1>-->
+		<div class="sorter">
+			<input type="hidden" name="ordering">
+			<ul>
+				<li><span>Sort by:</span></li>
+				<li><a href="#" data-order="created" ng-click="reverse=!reverse;order('created',reverse)" >Date</a></li>
+				<li><a href="#" data-order="" ng-click="reverse=!reverse;order('views',reverse)">Relevance</a></li>
+				<!-- same as other two, pass for popularity variable-->
+				<li><a href="#" data-order="views" >Popularity</a></li>
+			</ul>
+		</div>
+		<div class="snippet-list">
+			<div class="snippet-group" ng-repeat="snippet in snippets | filter:searchText">
+				<div class="snippet-body">
+					<h2><a href="#">{{snippet.title}}</a></h2>
+					<div class="snippet-description">
+						{{ snippet.description }}
+					</div>
+					<div class="snippet-actions">
+						<div style="float:left">
+							<div class="gap" >
+								<p style="display:inline; font-size:25px; color:gray">{{snippet.good_feed}}</p>
+								<span class="likeicon likeicon-markup"></span>
+							</div>
+							<div class="gap">
+								<p style="display:inline; font-size:25px; color:gray">{{snippet.bad_feed}}</p>
+								<span class="likeicon likeicon-markdown"></span>
+							</div>
+							<div class="gap">
+								<a href="#">Copy to clipboard</a>
+							</div>
+						</div>
+						<a class="snippet-code-view">View</a>
+
+					</div>
+				</div>
+				<div class="snippet-code">
+					<pre>{{snippet.code}}</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="right-menu menu-collapse">
+		<div class="menu-collapse-caption">
+			<a href="#" data-menu=".right-menu">
+					<span class="icon icon-arrowdown"></span>
+					<span class="toggle-me">Related searches</span> .
+			</a>
+		</div>
+		<div class="menu-collapse-content">
+			<div class="right-related">
+				<div class="right-menu-heading">Related searches</div>
+				<ul>
+					<li><a href="#">"Python code"</a></li>
+					<li><a href="#">"Django code"</a></li>
+					<li><a href="#">"Examples</a></li>
+					<li><a href="#">"test"</a></li>
+				</ul>
+				<div class="right-related">
+					<div class="right-menu-heading">Popular searches</div>
+					<ul>
+						<li><a href="#">"Python code"</a></li>
+						<li><a href="#">"Django code"</a></li>
+						<li><a href="#">"Examples</a></li>
+						<li><a href="#">"test"</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

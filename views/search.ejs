@@ -1,0 +1,95 @@
+<div class="left-menu menu-collapse">
+    <div class="menu-collapse-caption">
+        <a href="#" data-menu=".left-menu">
+            <span class="icon icon-arrowdown"></span>
+            Filter
+        </a>
+    </div>
+    <div class="menu-collapse-content">
+        <div class="left-menu-form">
+            <label>Language</label>
+            <br/>
+            <select class="custom-combobox-input ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input" placeholder="Language" ng-model="frame_query" ng-change="framework_find()"  ng-options="language as language.name for language in languages">
+            </select>
+            <br/>
+            <label>Framework</label>
+            <br/>
+            <select class="custom-combobox-input ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input" placeholder="Framework" ng-change="language_find()" ng-model="language_query" ng-options="framework as framework.name for framework in frameworks">
+
+            </select>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <h1>{{count}} results found</h1>
+    <!--<h1>{{snippets.count}} results{% if filterform.q.value %} for: <span class="search-term">“{{  filterform.q.value }}”</span>{% endif %}</h1>-->
+    <div class="sorter">
+        <input type="hidden" name="ordering">
+        <ul>
+            <li><span>Sort by:</span></li>
+            <li><a href="#" data-order="created" ng-click="reverse=!reverse;order('created',reverse)" >Date</a></li>
+            <li><a href="#" data-order="" ng-click="reverse=!reverse;order('views',reverse)">Relevance</a></li>
+            <!-- same as other two, pass for popularity variable-->
+            <li><a href="#" data-order="views" >Popularity</a></li>
+        </ul>
+    </div>
+    <div class="snippet-list">
+        <div class="snippet-group" ng-repeat="snippet in snippets | filter:searchText">
+            <div class="snippet-body">
+                <h2><a href="#">{{snippet.title}}</a></h2>
+                <div class="snippet-description">
+                    {{ snippet.description }}
+                </div>
+                <div class="snippet-actions">
+                    <div style="float:left">
+                        <div class="gap" >
+                            <p style="display:inline; font-size:25px; color:gray">{{snippet.good_feed}}</p>
+                            <span class="likeicon likeicon-markup"></span>
+                        </div>
+                        <div class="gap">
+                            <p style="display:inline; font-size:25px; color:gray">{{snippet.bad_feed}}</p>
+                            <span class="likeicon likeicon-markdown"></span>
+                        </div>
+                        <div class="gap">
+                            <a href="#">Copy to clipboard</a>
+                        </div>
+                    </div>
+                    <a class="snippet-code-view">View</a>
+
+                </div>
+            </div>
+            <div class="snippet-code">
+                <pre>{{snippet.code}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="right-menu menu-collapse">
+    <div class="menu-collapse-caption">
+        <a href="#" data-menu=".right-menu">
+            <span class="icon icon-arrowdown"></span>
+            <span class="toggle-me">Related searches</span> .
+        </a>
+    </div>
+    <div class="menu-collapse-content">
+        <div class="right-related">
+            <div class="right-menu-heading">Related searches</div>
+            <ul>
+                <li><a href="#">"Python code"</a></li>
+                <li><a href="#">"Django code"</a></li>
+                <li><a href="#">"Examples</a></li>
+                <li><a href="#">"test"</a></li>
+            </ul>
+            <div class="right-related">
+                <div class="right-menu-heading">Popular searches</div>
+                <ul>
+                    <li><a href="#">"Python code"</a></li>
+                    <li><a href="#">"Django code"</a></li>
+                    <li><a href="#">"Examples</a></li>
+                    <li><a href="#">"test"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
