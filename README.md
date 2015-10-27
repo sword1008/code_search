@@ -13,8 +13,8 @@
 ## Testing the API
 Test your API using [Postman]
 
-API Doc for Code_Search
--- Getting Snippets
+##API Doc for Code_Search
+### Getting Snippets
     Request:
         /snippets                                           GET
     Response 200:
@@ -59,7 +59,7 @@ API Doc for Code_Search
         ]
     Response 401:
         [{"No Sever"}]
--- Creating New Snippet
+### Creating New Snippet
     Request:
         /snippets/create/                                   PUT
             body:
@@ -76,7 +76,7 @@ API Doc for Code_Search
         {"Snippets created!"}
     Response 401:
         {"Can't create Snippet"}
--- Creating New Framework
+### Creating New Framework
     Request:
         /framework/create/                                   PUT
             body:
@@ -89,7 +89,7 @@ API Doc for Code_Search
         {"Framework created!"}
     Response 401:
         {"Can't create Framework!"}
--- Creating New Language
+### Creating New Language
     Request:
         /language/create/                                    PUT
             body:
@@ -100,7 +100,7 @@ API Doc for Code_Search
         {"Language created!"}
     Response 401:
         {"Can't create Language!"}
--- Language Search
+### Language Search
     Request:
         /snippets/language_search?{language}                 GET
         example:
@@ -120,7 +120,7 @@ API Doc for Code_Search
                 ]
             Respones 401:
                     [{"Can't find snippets with that language"}
--- Framework Search
+### Framework Search
     Request:
         /snippets/framework_search?{framework}              GET
         example:
@@ -145,9 +145,9 @@ API Doc for Code_Search
 
 
 ## Each Sub directory's function
-/app/snippets: define data structure of each models
-/app/index.js: define api routes for code_search
-/app/routes.js: define api models for user authentication
-/views/index.ejs: frontend part for code_search
-/server.js: api models for code_search and integrating route.js
+    /app/snippets: define data structure of each models
+    /app/index.js: define api routes for code_search
+    /app/routes.js: define api models for user authentication
+    /views/index.ejs: frontend part for code_search
+    /server.js: api models for code_search and integrating route.js
 
